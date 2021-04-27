@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/owner.css">
+</head>
+<body>
+<iframe src="public/ownerHead.html" width=100%; height="284px"></iframe>
+<section><div class="container"><div class="yto-box"></div></div></section>
+<iframe src="public/ownerFooter.html" width=100%; height="55px"></iframe>
+    <script>
+        $(function () {
+            let giao = location.search.split("?")[1].split("=")[1];
+            what(giao);
+            // let who = localStorage.getItem('lanou');
+        })
+        function what(giao){
+            let btitle;
+            let stitle;
+            let asd ;
+            let who = localStorage.getItem('lanou');
+            switch (giao){
+                case '0':
+                    $('.yto-box').append(`
+                                    <h5>购物车</h5>
+                                    <form action="cartpay.php" method="get" id="form">
+                                    <div class="panel panel-default">
+                                    <div class="panel-heading">购物车</div>
+                                    <div class="table-responsive">
+                                    <table class="table table-condensed" style="font-size: 12px;">
+                                     <thead>
+                                    <tr>
+                                    <th>选择</th>
+                                    <th>图片</th>
+                                    <th>商品</th>
+                                    <th>总价</th>
+                                    <th>付款</th>
+                                    <th>移除</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="goods">
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    </div>
+                                    <label><input type="checkbox" id="selectAll" name="selectAll" data-price="0"> 全选</label>
+                                    <input type="hidden" value="1" name="no">
+                                    <button class="btn btn-sm btn-danger" type="button" onclick="delall()">移除选中</button>
+                                    <button class="btn btn-sm btn-primary" type="submit">支付选中</button>
+                                    <div style="color: #ff0000;font-size: 20px;font-weight: bold;float:right">总价：<span id="price_all">0.00</span>元</div>
+                                    </form>
+                            `);
+                     $.ajax({
+                             url:'http://47.105.96.139:8082/napi/member/cart',
+                             type:'get',
+                             data:{token:JSON.parse(who).token},
+                             dataType:'json',
+                             success:function(data){
+                                 console.log(data.data);
+                                 let arr = data.data;
+
+                                 for(var i = 0;i<arr.length; i++){
+                                     $('.goods').append(`
+                                          <tr>
+                                         <td><input type="checkbox" name="O[]" value="392" data-price="108"></td>
+                                         <td><img src="http://47.105.96.139:8082/media/${arr[i].O_pic}" height="50"></td>
+                                         <td>
+                                             <p><a href="##" target="_blank">${arr[i].O_title}</a></p>
+                                             <p>${arr[i].O_price}元 × 1件 【标配】</p>
+                                         </td>
+                                         <td><span style="color:#ff0000;font-weight:bold">${arr[i].O_price}</span></td>
+                                         <td><a href="unlogin.php?type=product&amp;id=94&amp;genkey=202104251613466301" class="btn btn-xs btn-primary" type="submit">付款</a></td>
+                                         <td><button class="btn btn-xs btn-danger" type="button" onclick="del(392)">移除</button></td>
+                                     </tr>
+                                     `);
+                                 }
+                             },
+                             error:function(data){
+                                 alert('请求出错啦!');
+                             }
+                         })
+                    break;
+                case '1':
+                     btitle = '已购商品';
+                     stitle = '商品记录';
+                     asd = ['图片','商品','订单号/时间','提货','操作'];
+                    $.ajax({
+                        url:'http://47.105.96.139:8082/napi/member/buyedGoods',
+                        type:'post',
+                        data:{token:JSON.parse(who).token},
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data.data.list);
+                            let arr = data.data.list;
+                            for(var i = 0;i<arr.length; i++){
+                                $('.goods').append(`
+                                         <tr>
+                                 <td><img src="http://47.105.96.139:8082/${arr[i].O_pic}" height="50"></td>
+                                 <td>
+                                 <p><a href="##" style="color:#62a8ea;" target="_blank">${arr[i].O_title}</a></p>
+                                 <p><span style="font-weight:bold;color:#ff0000">${arr[i].O_price}元</span> × 1件 【标配】</p>
+                                 </td>
+                                 <td>${arr[i].O_genkey}</td>
+                                 <td></td>
+                                 <td>
+                                    <a href="unlogin.php?type=product&amp;id=94&amp;genkey=202104251613466301" class="btn btn-xs btn-primary" type="submit">付款</a>
+                                    <button class="btn btn-xs btn-danger" type="button" onclick="del(392)">移除</button>
+                                 </td>
+                             </tr>
+                                     `);
+                            }
+                        },
+                        error:function(data){
+                            alert('请求出错啦!');
+                        }
+                    })
+                    break;
+                case '2':
+                    btitle = '已购文章';
+                    stitle = '文章记录';
+                    asd = ['图片','文章','总价','状态','阅读'];
+                     $.ajax({
+                             url:'http://47.105.96.139:8082/napi/member/buyedNews',
+                             type:'post',
+                             dataType:'json',
+                             data:{token:JSON.parse(who).token},
+                             success:function(data){
+                                 console.log(data.data.list);
+                                 let arr = data.data.list;
+                                 for(var i = 0;i<arr.length; i++){
+                                     $('.goods').append(`
+                                         <tr>
+                                 <td><img src="http://47.105.96.139:8082/${arr[i].O_pic}" height="50"></td>
+                                 <td>
+                                 <p><a href="##" style="color:#62a8ea;" target="_blank">${arr[i].O_title}</a></p>
+                                 <p><span style="font-weight:bold;color:#ff0000">${arr[i].O_price}元</span> × 1</p>
+                                 </td>
+                                 <td>${arr[i].O_price}元</td>
+                                 <td>未付款</td>
+                                 <td>
+                                    <a href="unlogin.php?type=product&amp;id=94&amp;genkey=202104251613466301" class="btn btn-xs btn-primary" type="submit">付款</a>
+                                 </td>
+                             </tr>
+                                     `);
+                                 }
+                             },
+                             error:function(data){
+                                 alert('请求出错啦!');
+                             }
+                         })
+                    break;
+                case '3':
+                    btitle = '已购课程';
+                    stitle = '课程记录';
+                    asd = ['图片','课程','总计','状态','操作'];
+                    $.ajax({
+                        url:'http://47.105.96.139:8082/napi/member/buyedCourse',
+                        type:'get',
+                        dataType:'json',
+                        data:{token:JSON.parse(who).token},
+                        success:function(data){
+                            console.log(data.data.list);
+                            let arr = data.data.list;
+                            for(var i = 0;i<arr.length; i++){
+                                $('.goods').append(`
+                                         <tr>
+                                 <td><img src="http://47.105.96.139:8082/${arr[i].O_pic}" height="50"></td>
+                                 <td>
+                                 <p><a href="##" style="color:#62a8ea;" target="_blank">${arr[i].O_title}</a></p>
+                                 <p><span style="font-weight:bold;color:#ff0000">${arr[i].O_price}元</span> × 1</p>
+                                 </td>
+                                 <td>${arr[i].O_price}元</td>
+                                 <td>未付款</td>
+                                 <td>
+                                    <a href="unlogin.php?type=product&amp;id=94&amp;genkey=202104251613466301" class="btn btn-xs btn-primary" type="submit">付款</a>
+                                 </td>
+                             </tr>
+                                     `);
+                            }
+                        },
+                        error:function(data){
+                            alert('请求出错啦!');
+                        }
+                    })
+                    break;
+            }
+            $('.yto-box').append(`
+                        <h5>${btitle}</h5>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">${stitle}
+                        </div>
+                        <div class="table-responsive">
+
+                        <table class="table table-condensed" style="font-size: 12px;">
+                         <thead>
+                        <tr>
+                        <th width="10%">${asd[0]}</th>
+                        <th width="40%">${asd[1]}</th>
+                        <th width="20%">${asd[2]}</th>
+                        <th width="20%">${asd[3]}</th>
+                        <th width="10%">${asd[4]}</th>
+                        </tr>
+                        </thead>
+                        <tbody class="goods">
+
+                        </tbody>
+                        </table>
+                        </div>
+                        </div>
+                    `);
+
+        }
+    </script>
+
+</body>
+</html>

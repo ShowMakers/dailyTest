@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>联系俺们</title>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <script src="js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/normal.css">
+    <script src="js/headAndFoot.js"></script>
+    <script src="js/content.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c266e31e47fa6a1b68e7213170ec237e"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default nv navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="first.html">
+                    <img src="img/logo.png" alt="" style="max-height:70px">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse n" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form form-group form-search navbar-left">
+                    <input type="text" class="form-control search-query" placeholder="Search">
+                    <button class="btn btn-default glyphicon glyphicon-search"></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="###">学习记录</a></li>
+                    <li><a href="###">会员特权</a></li>
+                    <li><a href="login.html" id="login">登录</a></li>
+                    <li><a href="regester.html" id="reg">注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav id="nav" class="navbar-fixed-top" style="background-color: #f7f7f7;"></nav>
+</header>
+    <section>
+        <div class="bT" style="text-align: center;background-color:#f32196;height:120px;margin-top: 130px">
+            <h1 style="color:#FFFFFF;line-height:120px">联系俺们</h1>
+        </div>
+        <nav class="relation"  style="background-color:white">
+            <ul class="relation-ul container">
+                <li class="nav-li"><a href="#" id="Mes">在线留言</a></li>
+                <li class="nav-li"><a href="#">联系方式</a></li>
+                <li class="nav-li"><a href="#" id="find">订单查询</a></li>
+                <li class="nav-li"><a href="http://weibo.com">官方微博</a></li>
+            </ul>
+        </nav>
+        <div class="iu" style="background-color: #f7f7f7;padding:30px">
+            <div class="container">
+                                <div id="r1">
+                                    <div id="container" style="width:1200px;height:600px"></div>
+                                    <p style="font-size:20px;font-weight:bold; color:black;margin:20px 0">联系方式：</p>
+                                    <p>
+                                        <span style="color:#222222;background-color:#ffffff;">地址：北京市xx区xx路xx广场x号</span><br>
+                                        <span style="color:#222222;background-color:#ffffff;">电话：86-010-xxxxxxxx</span><br>
+                                        <span style="color:#222222;background-color:#ffffff;">传真：86-010-xxxxxxxxxxxxxxxx</span><br>
+                                        <span style="color:#222222;background-color:#ffffff;">邮箱：xxxxxxxxx@qq.com</span><br>
+                                        <span style="color:#222222;background-color:#ffffff;">网址：www.xxxxxx.com</span>
+                                    </p>
+                                    <p style="font-size:20px;font-weight:bold;color:black;margin-top:10px;">在线客服：</p>
+                                    <p>
+                                        <b>售前咨询</b>
+                                        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3080957051&amp;site=qq&amp;menu=yes">QQ：1649226800</a>
+                                        <br>
+                                        <b>售后服务</b>
+                                        <a href="http://www.taobao.com/webww/ww.php?ver=3&amp;touid=taobao&amp;siteid=cntaobao&amp;status=1&amp;charset=utf-8">旺旺：taobao</a>
+                                        <br>
+                                        <b>代理咨询</b>
+                                        <a href="tel:010-10086">电话：010-10086</a><br>
+                                    </p>
+                                </div>
+            </div>
+        </div>
+
+    </section>
+<footer>
+    <div class="container footer-header">
+        <p style="margin: 10px 0;"><img src="img/logo.png" alt=""><img src="img/wechat.jpg" style="width: 80px;float: right;"></p>
+        <nav class="foot-nav"></nav>
+    </div>
+    <br/>
+    <hr>
+    <div class="footer-down">
+        <nav class="friendlyLinks"></nav>
+    </div>
+    <div class="cr">
+        Copyright © 2015-2020 您的公司名称 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备00000000号</a> 在线客服：<a href="?type=contact">联系客服</a>
+    </div>
+</footer>
+    <script>
+        $(function () {
+            var map = new AMap.Map('container',{
+                zoom: 10,
+                center: [116.39,39.9]
+            });
+
+            // 同时引入工具条插件，比例尺插件和鹰眼插件
+            AMap.plugin([
+                'AMap.ToolBar',
+                'AMap.Scale',
+                'AMap.OverView',
+                'AMap.MapType',
+                'AMap.Geolocation',
+            ], function(){
+                // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+                map.addControl(new AMap.ToolBar());
+
+                // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
+                map.addControl(new AMap.Scale());
+
+                // 在图面添加鹰眼控件，在地图右下角显示地图的缩略图
+                map.addControl(new AMap.OverView({isOpen:true}));
+
+                // 在图面添加类别切换控件，实现默认图层与卫星图、实施交通图层之间切换的控制
+                map.addControl(new AMap.MapType());
+
+                // 在图面添加定位控件，用来获取和展示用户主机所在的经纬度位置
+                map.addControl(new AMap.Geolocation());
+            });
+        })
+        $('#Mes').click(function(){
+            //清除
+            $('#r1 *').remove();
+            $('#r1').append(`
+                     <div id="r2" style="padding:30px;background-color:white;height:550px">
+                    <h1 style="color:black">在线留言</h1>
+                    <p>欢迎给我们留言</p>
+                    <div class="form" style="margin:0 auto;width:65%">
+                        <div class="nb"><input type="text" placeholder="留言标题"></div>
+                        <div class="nb"><input type="text" placeholder="您的姓名"></div>
+                        <div class="nb"><input type="text" placeholder="您的电话"></div>
+                        <div class="nb"><input type="text" placeholder="您的邮箱"></div>
+                        <div class="nb"><textarea placeholder="留言内容" id="" cols="30" rows="10"></textarea></div>
+                        <div class="nb">
+                            <button type="button" disabled="disabled">提交留言</button>
+                            <button type="reset">重新填写</button>
+                        </div>
+                    </div>
+                </div>
+                `);
+        });
+        $('#find').click(function(){
+            $('#r1 *').remove();
+            $('#r1').append(`
+                 <div id="r3" style="padding:30px;background-color:white;">
+                        <h1 style="color:black">订单查询</h1>
+                        <div style="display:flex;justify-content:center;height:40px;margin-bottom: 20px">
+                            <input type="text" placeholder="输入交易单号/订单号" style="width:93%">
+                            <button style="width:7%;background-color:#337ab7;color:white;padding:5px;border:none">查询订单</button>
+                        </div>
+                        <p style="color:black">
+                            请输入支付宝的交易单号或微信的订单号
+                            <button style="background-color:#5bc0de;padding:5px;color:white;border:none">查看实例</button>
+                        </p>
+                    </div>
+            `)
+        })
+    </script>
+</body>
+</html>

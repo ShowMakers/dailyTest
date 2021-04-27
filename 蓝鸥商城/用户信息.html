@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/owner.css">
+</head>
+<body>
+<iframe src="public/ownerHead.html" width=100%; height="284px"></iframe>
+<section><div class="container"><div class="yto-box" ></div></div></section>
+<iframe src="public/ownerFooter.html" width=100%; height="55px"></iframe>
+<script>
+        $(function () {
+            let giao = location.search.split("?")[1].split("=")[1];
+            what(giao);
+        })
+        //转码
+        function changeImg(obj) {
+            var file = obj.files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // imgSrc = e.target.result;
+                $('#headUrlImg').prop('src',e.target.result);
+            }
+            reader.readAsDataURL(file);
+        }
+        let who = localStorage.getItem('lanou');
+        function what(giao){
+            let title;
+            imgSrc = JSON.parse(who).head;
+            switch (giao){
+                case '0':
+                    title = '用户信息';
+                    $('.yto-box').append(`
+                    <div class="row">
+                     <div class="col-sm-2 hidden-xs">
+                     <div class="my-avatar center-block p_bottom_10">
+                        <span class="avatar">
+                              <img alt="..."  height="100px" width="100px">
+                        </span>
+                    </div>
+                    <h5 class="text-center p_bottom_10 hello"></h5>
+                         <ul class="nav nav-pills nav-stacked">
+                            <li><a href="?type=0">基本信息</a></li>
+                            <li><a href="?type=1">收货地址</a></li>
+                            <li><a href="?type=2">密码修改</a></li>
+                         </ul>
+                     </div>
+                     <div class="col-sm-10 b-left">
+                    <p class="alert alert-danger hidden" role="alert" id="error"></p>
+                    <form id="userinfo_save" class="form-horizontal">
+                     <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">头像</label>
+                    <div class="col-sm-4">
+                    <div class="avatar-edit" title="" data-original-title="点击上传头像">
+                        <img id="headUrlImg" height="100px" width="100px">
+                    <input type="file" id="file" style="margin-top: 20px" onchange="changeImg(this)">
+                      <input type="hidden" name="headFile" class="headimg">
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">帐号</label>
+                    <div class="col-sm-4">
+                       <input name="M_login" class="form-control uname" readonly="">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">邮箱<span style="color:#ff0000">*</span></label>
+                    <div class="col-sm-4">
+                       <input name="M_email" class="form-control email" id="email" required="">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">手机</label>
+                    <div class="col-sm-4">
+                       <input name="M_mobile" value="" class="form-control phone">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">QQ</label>
+                    <div class="col-sm-4">
+                       <input name="M_qq" value="" class="form-control">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">店铺名称</label>
+                    <div class="col-sm-4">
+                       <input name="M_shop" value="" class="form-control">
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="oldpass" class="col-sm-2 control-label">店铺公告</label>
+                    <div class="col-sm-4">
+                       <textarea class="form-control" name="M_notice" rows="5"></textarea>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="col-sm-offset-2  col-sm-4">
+                       说明：带<span style="color:#ff0000">*</span>项为必填项
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                    <div class="col-sm-offset-2  col-sm-4">
+                       <input type="button" value="修改" id="changeOwner" class="btn btn-primary btn-block m_top_20">
+                    </div>
+                    </div>
+                </form>
+                </div>
+                </div>
+            `);
+                    //读取
+                    $.ajax({
+                        url:'http://47.105.96.139:8082/napi/member/memberInfo',
+                        type:'get',
+                        dataType:'json',
+                        success:function(data){//http://47.105.96.139:8082/media
+                            //方头
+                            $('.avatar-edit').find('img').attr('src','http://47.105.96.139:8082/'+JSON.parse(who).head);
+                            //圆头
+                            $('.avatar img').attr('src','http://47.105.96.139:8082/'+JSON.parse(who).head);
+                            $('.hello').html('您好,'+JSON.parse(who).username);
+                            $('.uname').val(JSON.parse(who).username);
+                            $('.email').val(JSON.parse(who).email);
+                            $('.phone').val(JSON.parse(who).username);
+                            $(`.nav-stacked li:eq(${giao}) a`).css({backgroundColor:'#337ab7',color:'white'});
+                        },
+                        error:function(data){
+                            alert('请求出错啦!');
+                        }
+
+                    })
+
+                    //改数据
+                    $('#changeOwner').on('click', function(){
+                        let imgsrc = $('#headUrlImg').prop('src');
+                        console.log(imgsrc);
+                        let email = document.getElementById('email').value;
+                        $.ajax({
+                            url:'http://47.105.96.139:8082/napi/member/memberInfo',
+                            type:'post',
+                            data:{
+                                'M_email':email,
+                                'headFile':imgsrc,
+                                token:JSON.parse(who).token
+                            },
+                            dataType:'json',
+                            success:function(data){
+                                console.log(data)
+                                localStorage.removeItem('lanou');
+                                location.href = 'login.html';
+                            },
+                            error:function(data){
+                                alert('请求出错啦!');
+                            }
+                        })
+                    });
+                    $('.container').prepend(`
+                        <ol class="breadcrumb">
+                            <li><i class="icon fa-home" aria-hidden="true"></i><a href="../">首页</a></li>
+                            <li>用户信息</li>
+                            <li class="active">${title}</li>
+                        </ol>
+                    `);
+
+                    break;
+                case '1':
+                    $('.yto-box').append(`
+                        <h5>收货信息</h5>
+                        <a href="###" class="btn btn-sm btn-primary pull-right" style="margin-top: -40px">新增收货地址</a>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">收货信息</div>
+                        <div class="table-responsive">
+
+                        <table class="table table-condensed" style="font-size: 12px;">
+                         <thead>
+                        <tr>
+                        <th width="50%">收件地址</th>
+                        <th width="15%">收件人</th>
+                        <th width="15%">手机号</th>
+                        <th width="10%">编辑</th>
+                        <th width="10%">删除</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                        </table>
+                        </div>
+                        </div>
+                    `);
+                    break;
+                case '2':
+                    title = '密码修改';
+                    $('.yto-box').append(`
+                        <div class="row">
+                         <div class="col-sm-2 hidden-xs">
+                         <div class="my-avatar center-block p_bottom_10">
+                        <span class="avatar">
+                              <img alt="..." src="img/48684.jpg">
+                        </span>
+                        </div>
+                        <h5 class="text-center p_bottom_10 hello"></h5>
+                             <ul class="nav nav-pills nav-stacked">
+                                <li><a href="?type=0">基本信息</a></li>
+                                <li><a href="?type=1">收货地址</a></li>
+                                <li class="active"><a href="pwdedit.php">密码修改</a></li>
+                             </ul>
+                         </div>
+                         <div class="col-sm-10 b-left">
+                        <p class="alert alert-danger hidden" role="alert" id="error"></p>
+                        <form id="userinfo_save" class="form-horizontal">
+                        <div class="form-group">
+                        <label for="oldpass" class="col-sm-2 control-label">昵称</label>
+                        <div class="col-sm-4">
+                           <input name="M_login" class="form-control uname" readonly="">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="oldpass" class="col-sm-2 control-label">原密码</label>
+                        <div class="col-sm-4">
+                           <input type="password" name="M_pwd" value="" id="oldPwd" class="form-control" placeholder="原密码">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="oldpass" class="col-sm-2 control-label">新密码</label>
+                        <div class="col-sm-4">
+                           <input type="password" name="M_newpwd" value="" id="newPwd" class="form-control" placeholder="新密码">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="oldpass" class="col-sm-2 control-label">确认密码</label>
+                        <div class="col-sm-4">
+                           <input type="password" name="M_newpwd2" value="" id="agPwd" class="form-control" placeholder="确认密码">
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                        <div class="col-sm-offset-2  col-sm-4">
+                           <input type="button" value="确认修改" id="changePwd" class="btn btn-primary btn-block m_top_20">
+                        </div>
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                    `);
+                    //修改密码
+                    $('#changePwd').on('click', function(){
+                        let oldPassword = document.getElementById('oldPwd').value;
+                        let newPassword = document.getElementById('newPwd').value;
+                        let agPassword = document.getElementById('agPwd').value;
+                        $.ajax({
+                            url:'http://47.105.96.139:8082/napi/member/changePwd',
+                            type:'post',
+                            data:{
+                                'M_pwd':oldPassword,
+                                'M_newpwd':newPassword,
+                                'M_newpwd2':agPassword,
+                                token:JSON.parse(who).token
+                            },
+                            dataType:'json',
+                            success:function(data){
+                                console.log(data);
+                                if(data.msg === 'success'){
+                                    alert('修改成功!');
+                                    location.href = 'login.html';
+                                }
+                            },
+                            error:function(data){
+                                alert('请求出错啦!');
+                            }
+                        })
+                    })
+                    $('.container').prepend(`
+                        <ol class="breadcrumb">
+                            <li><i class="icon fa-home" aria-hidden="true"></i><a href="../">首页</a></li>
+                            <li>用户信息</li>
+                            <li class="active">${title}</li>
+                        </ol>
+                    `);
+                    break;
+                case '3':
+                    //资金明细
+                    $.ajax({
+                        url:'http://47.105.96.139:8082/napi/member/fundList',
+                        type:'get',
+                        data:{token:JSON.parse(who).token},
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data);
+                            let arr = data.data.list;
+                            console.log(arr);
+                            for (let i =0;i<arr.length;i++) {
+                                $('.yto-box').append(`
+                        <h5>资金明细</h5>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">资金明细</div>
+                        <div class="table-responsive">
+
+                        <table class="table table-condensed" style="font-size: 12px;">
+                         <thead>
+                        <tr>
+
+                        <th>名称</th>
+                        <th>金额/积分</th>
+                        <th>编号</th>
+                        <th>时间</th>
+                        <th>审核</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr>
+                                    <th>${arr[i].L_title}</th>
+                                    <th>${arr[i].L_money}</th>
+                                    <th>${arr[i].L_no}</th>
+                                    <th>${arr[i].L_time}</th>
+                                    <th>已通过</th>
+                                    </tr>
+                        </tbody>
+                        </table>
+                        </div>
+                        </div>
+                    `);
+                            }
+                        },
+                        error:function(data){
+                            alert('请求出错啦!');
+                        }
+                    })
+                    break;
+            }
+        }
+
+</script>
+</body>
+</html>

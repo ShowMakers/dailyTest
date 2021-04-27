@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>课程学习</title>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/normal.css">
+    <link rel="stylesheet" href="css/learn.css">
+<!--    <script src="js/headAndFoot.js"></script>-->
+<!--    <script src="js/content.js"></script>-->
+<!--    <script src="js/courses-detail.js"></script>-->
+</head>
+<body>
+    <div class="head">
+        <a href="#" class="back">&lt;</a>
+        <div id="t" style="color:black"></div>
+        <a href="./"><img src="img/logo.png"></a>
+    </div>
+    <div class="col-lg-10 col-md-9 left-box" id="v">
+
+    </div>
+    <div class="col-lg-2 col-md-3 right-box">
+        <div class="right-Top" style="display:flex;justify-content:space-around">
+        <!--图片-->
+            <div class="r-ttop" style="padding:0 15px;width:42%;"></div>
+            <!--                描述-->
+            <div class="r-td" style="width: 58%; display:flex;flex-direction:column"></div>
+        </div>
+    </div>
+
+    <script>
+            $(function () {
+                let cool = location.search.split("?")[1].split("=")[1];
+                 $.ajax({
+                         url:'http://47.105.96.139:8082/napi/index/getCourse',
+                         type:'get',
+                         dataType:'json',
+                         data:{id:cool},
+                         success:function(data){
+                            let {C_title,C_pic,C_price} = data.data;
+                             $('#t').html(C_title);
+                             $('<img src="http://47.105.96.139:8082'+C_pic+'" style="width: 100%"/>').appendTo($('.r-ttop'));
+                             $('<p/>').html(C_title).appendTo($('.r-td'));
+                             $('.r-td').append(`
+                                    <p style="font-weight: normal;font-size: 12px">全套售价：<span style="font-size: 15px;color: #ff0000;font-weight: bold;">${C_price}元</span></p>
+                                    <p><button class="btn-success">免费课程</button></p>
+                                 `)
+                             console.log(data.data.C_video.chapter);
+                             //byKeyGetValue
+                             let giao = Object.keys(data.data.C_video.chapter);
+                             for (const key of giao) {
+                                 let val = data.data.C_video.chapter[key];
+                                 console.log(val);
+                                 //章节
+                                 $('.right-box').append(`
+                                    <a class="list-group-item">
+                                          <div class="part"><p class="zj">章节</p>
+                                          </div><div class="part2"><p class="zj" style="float:left">${val.title}</p> <div class="z">${val.index}</div></div>
+                                        </a>
+                                 `)
+                                 //章节里的内容
+                                 for (const courseElement of val.course) {
+                                     let str;
+                                     if(courseElement.price === 0){
+                                        str = `<span style="color: #0099ff;">免费观看</span>`;
+                                     }else{
+                                         str = `<span style="color: #f90;">本章节售价:${courseElement.price}元</span>`;
+                                     }
+                                     //章节的内容
+                                     $('.right-box').append(`
+                                        <a href="javascript:;" class="list-group-item" id="item_2" v = "${courseElement.video}">
+                                          <div class="part"><p>课时${courseElement.index}</p><p><span style="font-weight:lighter;">${courseElement.playTime}</span></p>
+                                          </div><div class="part2"><p style="white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                            word-break: break-all;">${courseElement.title}</p><p><span><span style="color:#0099ff">${str}</span></span></p> <div class="y"></div></div>
+                                        </a>
+                                    `);
+                                 }
+                             }
+                             //Video
+                             $('.list-group-item').on('click',function(){
+                                    let str = $(this).attr('v');
+                                    if(str === undefined) return;
+                                    let video = `<video controls src="http://47.105.96.139:8082${str}"></video>`;
+                                    $('.left-box *').remove();
+                                    $('.left-box').append(video);
+                             });
+
+                         },
+                         error:function(data){
+                             alert('请求出错啦!');
+                         }
+                     })
+            })
+    $('.back').on('click',function(){
+        history.back();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+ul, ol {
+  list-style: none;
+}
+
+li {
+  border-radius: 0 !important;
+}
+
+section li:hover {
+  margin-top: -1px;
+  transition: all 0.5s linear;
+  box-shadow: 0 0 10px gray;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+input {
+  outline: none !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, h3 {
+  color: black;
+  text-decoration: none;
+}
+a:hover, h3:hover {
+  text-decoration: none;
+}
+
+.nv {
+  height: 70px;
+  background-color: #FFFFFF;
+  border: none;
+}
+
+.n {
+  margin-top: 10px;
+}
+
+.navbar-brand > img {
+  margin-top: -14px;
+}
+
+.form-group {
+  border-radius: 50px;
+  height: 40px;
+  border: 1px solid;
+}
+.form-group > button {
+  height: 40px;
+  border: none;
+  width: 44px;
+  border-radius: 40%;
+  background-size: 50%;
+}
+.form-group > button:hover {
+  background-color: #f32196;
+}
+
+.navbar-form .form-control {
+  height: 80%;
+  width: 80%;
+  border: none;
+  vertical-align: middle;
+}
+
+#nav {
+  margin-top: 70px;
+}
+
+#nav .nav-ul, #nav .foot-head-ul, #nav .foot-down-ul, .foot-nav .nav-ul, .foot-nav .foot-head-ul, .foot-nav .foot-down-ul, .friendlyLinks .nav-ul, .friendlyLinks .foot-head-ul, .friendlyLinks .foot-down-ul {
+  margin: 0 auto;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+#nav .nav-ul > li, #nav .foot-head-ul > li, #nav .foot-down-ul > li, .foot-nav .nav-ul > li, .foot-nav .foot-head-ul > li, .foot-nav .foot-down-ul > li, .friendlyLinks .nav-ul > li, .friendlyLinks .foot-head-ul > li, .friendlyLinks .foot-down-ul > li {
+  display: block;
+  padding: 20px;
+}
+#nav .nav-ul > li > a, #nav .foot-head-ul > li > a, #nav .foot-down-ul > li > a, .foot-nav .nav-ul > li > a, .foot-nav .foot-head-ul > li > a, .foot-nav .foot-down-ul > li > a, .friendlyLinks .nav-ul > li > a, .friendlyLinks .foot-head-ul > li > a, .friendlyLinks .foot-down-ul > li > a {
+  white-space: nowrap;
+}
+
+section {
+  flex: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 20px;
+  background-color: #FFFFFF;
+}
+
+.cr {
+  text-align: center;
+}
+
+.swiper {
+  margin-top: 150px;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 360px;
+}
+.swiper > .swiper-left {
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background: rgba(51, 51, 51, 0.5);
+  border: none;
+  height: 360px;
+  z-index: 100;
+  overflow: hidden;
+}
+.swiper .swiper-top-left {
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.swiper .swiper-top-left > li {
+  margin: 11px 0;
+}
+.swiper .swiper-top-left > li > a {
+  color: #FFFFFF;
+}
+
+#notice {
+  font-size: 14px;
+  color: black;
+  margin: 30px 0;
+}
+
+.newUp > .container, .four > .container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.newUp > .container > li, .four > .container > li {
+  background-color: #fff;
+}
+
+.title-box {
+  height: 26px;
+  margin: 20px 0;
+}
+.title-box .title-name {
+  float: left;
+}
+.title-box .title-name > h3 {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+}
+.title-box .title-move {
+  float: right;
+  font-size: 24px;
+  text-align: center;
+}
+.title-box .title-move > i {
+  color: black;
+  float: left;
+  width: 40px;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.newProduct {
+  display: flex;
+  justify-content: space-between;
+}
+.newProduct > li {
+  text-align: center;
+  width: 20%;
+  border-radius: 35px;
+  overflow: hidden;
+}
+.newProduct > li > img {
+  border-radius: 35px;
+  overflow: hidden;
+}
+.newProduct > li > a > p {
+  color: #333;
+  font-weight: normal;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 20px 0;
+}
+
+.noNew {
+  background: #f5f5f5;
+  padding: 30px 0;
+}
+.noNew .title-box > .title-nav {
+  float: right;
+  display: flex;
+  justify-content: space-between;
+}
+.noNew .title-box > .title-nav > li {
+  float: left;
+  list-style: none;
+  padding: 10px 0 5px 0;
+  margin: 0 28px 0 0;
+  position: relative;
+}
+
+.text ul > li {
+  width: 25%;
+  border-radius: 35px;
+  overflow: hidden;
+}
+.text ul > li > a {
+  background: #fff;
+  border-radius: 35px;
+  overflow: hidden;
+}
+.text ul > li > a > img {
+  border-radius: 35px;
+  overflow: hidden;
+}
+.text ul > li > a > span {
+  width: 100%;
+  display: block;
+  padding: 12px;
+  color: #333;
+}
+.text ul > li > a > span > p {
+  margin: 10px 0;
+  line-height: 1.75;
+  height: 72px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.text ul > li > a > span > b {
+  display: block;
+  font-weight: normal;
+  font-size: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: -40px;
+}
+
+.course {
+  margin-top: 20px;
+}
+
+.allCourse, .reader, .buy, .qwe, .uzi-left-intro, .df, .relation, .mine-nav {
+  display: flex;
+  justify-content: center;
+}
+.allCourse > .allCourse-ul, .allCourse .read-nav, .allCourse .buy-nav, .allCourse .qwe-ul, .allCourse .uzi-ul, .allCourse .df-ul, .allCourse .relation-ul, .allCourse .mine-ul, .reader > .allCourse-ul, .reader .read-nav, .reader .buy-nav, .reader .qwe-ul, .reader .uzi-ul, .reader .df-ul, .reader .relation-ul, .reader .mine-ul, .buy > .allCourse-ul, .buy .read-nav, .buy .buy-nav, .buy .qwe-ul, .buy .uzi-ul, .buy .df-ul, .buy .relation-ul, .buy .mine-ul, .qwe > .allCourse-ul, .qwe .read-nav, .qwe .buy-nav, .qwe .qwe-ul, .qwe .uzi-ul, .qwe .df-ul, .qwe .relation-ul, .qwe .mine-ul, .uzi-left-intro > .allCourse-ul, .uzi-left-intro .read-nav, .uzi-left-intro .buy-nav, .uzi-left-intro .qwe-ul, .uzi-left-intro .uzi-ul, .uzi-left-intro .df-ul, .uzi-left-intro .relation-ul, .uzi-left-intro .mine-ul, .df > .allCourse-ul, .df .read-nav, .df .buy-nav, .df .qwe-ul, .df .uzi-ul, .df .df-ul, .df .relation-ul, .df .mine-ul, .relation > .allCourse-ul, .relation .read-nav, .relation .buy-nav, .relation .qwe-ul, .relation .uzi-ul, .relation .df-ul, .relation .relation-ul, .relation .mine-ul, .mine-nav > .allCourse-ul, .mine-nav .read-nav, .mine-nav .buy-nav, .mine-nav .qwe-ul, .mine-nav .uzi-ul, .mine-nav .df-ul, .mine-nav .relation-ul, .mine-nav .mine-ul {
+  margin: 0 auto;
+  color: black;
+  display: flex;
+  justify-content: left;
+}
+.allCourse > .allCourse-ul > li, .allCourse .read-nav > li, .allCourse .buy-nav > li, .allCourse .qwe-ul > li, .allCourse .uzi-ul > li, .allCourse .df-ul > li, .allCourse .relation-ul > li, .allCourse .mine-ul > li, .reader > .allCourse-ul > li, .reader .read-nav > li, .reader .buy-nav > li, .reader .qwe-ul > li, .reader .uzi-ul > li, .reader .df-ul > li, .reader .relation-ul > li, .reader .mine-ul > li, .buy > .allCourse-ul > li, .buy .read-nav > li, .buy .buy-nav > li, .buy .qwe-ul > li, .buy .uzi-ul > li, .buy .df-ul > li, .buy .relation-ul > li, .buy .mine-ul > li, .qwe > .allCourse-ul > li, .qwe .read-nav > li, .qwe .buy-nav > li, .qwe .qwe-ul > li, .qwe .uzi-ul > li, .qwe .df-ul > li, .qwe .relation-ul > li, .qwe .mine-ul > li, .uzi-left-intro > .allCourse-ul > li, .uzi-left-intro .read-nav > li, .uzi-left-intro .buy-nav > li, .uzi-left-intro .qwe-ul > li, .uzi-left-intro .uzi-ul > li, .uzi-left-intro .df-ul > li, .uzi-left-intro .relation-ul > li, .uzi-left-intro .mine-ul > li, .df > .allCourse-ul > li, .df .read-nav > li, .df .buy-nav > li, .df .qwe-ul > li, .df .uzi-ul > li, .df .df-ul > li, .df .relation-ul > li, .df .mine-ul > li, .relation > .allCourse-ul > li, .relation .read-nav > li, .relation .buy-nav > li, .relation .qwe-ul > li, .relation .uzi-ul > li, .relation .df-ul > li, .relation .relation-ul > li, .relation .mine-ul > li, .mine-nav > .allCourse-ul > li, .mine-nav .read-nav > li, .mine-nav .buy-nav > li, .mine-nav .qwe-ul > li, .mine-nav .uzi-ul > li, .mine-nav .df-ul > li, .mine-nav .relation-ul > li, .mine-nav .mine-ul > li {
+  display: block;
+  padding: 20px;
+}
+.allCourse > .allCourse-ul > li:hover, .allCourse .read-nav > li:hover, .allCourse .buy-nav > li:hover, .allCourse .qwe-ul > li:hover, .allCourse .uzi-ul > li:hover, .allCourse .df-ul > li:hover, .allCourse .relation-ul > li:hover, .allCourse .mine-ul > li:hover, .reader > .allCourse-ul > li:hover, .reader .read-nav > li:hover, .reader .buy-nav > li:hover, .reader .qwe-ul > li:hover, .reader .uzi-ul > li:hover, .reader .df-ul > li:hover, .reader .relation-ul > li:hover, .reader .mine-ul > li:hover, .buy > .allCourse-ul > li:hover, .buy .read-nav > li:hover, .buy .buy-nav > li:hover, .buy .qwe-ul > li:hover, .buy .uzi-ul > li:hover, .buy .df-ul > li:hover, .buy .relation-ul > li:hover, .buy .mine-ul > li:hover, .qwe > .allCourse-ul > li:hover, .qwe .read-nav > li:hover, .qwe .buy-nav > li:hover, .qwe .qwe-ul > li:hover, .qwe .uzi-ul > li:hover, .qwe .df-ul > li:hover, .qwe .relation-ul > li:hover, .qwe .mine-ul > li:hover, .uzi-left-intro > .allCourse-ul > li:hover, .uzi-left-intro .read-nav > li:hover, .uzi-left-intro .buy-nav > li:hover, .uzi-left-intro .qwe-ul > li:hover, .uzi-left-intro .uzi-ul > li:hover, .uzi-left-intro .df-ul > li:hover, .uzi-left-intro .relation-ul > li:hover, .uzi-left-intro .mine-ul > li:hover, .df > .allCourse-ul > li:hover, .df .read-nav > li:hover, .df .buy-nav > li:hover, .df .qwe-ul > li:hover, .df .uzi-ul > li:hover, .df .df-ul > li:hover, .df .relation-ul > li:hover, .df .mine-ul > li:hover, .relation > .allCourse-ul > li:hover, .relation .read-nav > li:hover, .relation .buy-nav > li:hover, .relation .qwe-ul > li:hover, .relation .uzi-ul > li:hover, .relation .df-ul > li:hover, .relation .relation-ul > li:hover, .relation .mine-ul > li:hover, .mine-nav > .allCourse-ul > li:hover, .mine-nav .read-nav > li:hover, .mine-nav .buy-nav > li:hover, .mine-nav .qwe-ul > li:hover, .mine-nav .uzi-ul > li:hover, .mine-nav .df-ul > li:hover, .mine-nav .relation-ul > li:hover, .mine-nav .mine-ul > li:hover {
+  margin-top: 0;
+  transition: none;
+  box-shadow: none;
+}
+.allCourse > .allCourse-ul > li > a, .allCourse .read-nav > li > a, .allCourse .buy-nav > li > a, .allCourse .qwe-ul > li > a, .allCourse .uzi-ul > li > a, .allCourse .df-ul > li > a, .allCourse .relation-ul > li > a, .allCourse .mine-ul > li > a, .reader > .allCourse-ul > li > a, .reader .read-nav > li > a, .reader .buy-nav > li > a, .reader .qwe-ul > li > a, .reader .uzi-ul > li > a, .reader .df-ul > li > a, .reader .relation-ul > li > a, .reader .mine-ul > li > a, .buy > .allCourse-ul > li > a, .buy .read-nav > li > a, .buy .buy-nav > li > a, .buy .qwe-ul > li > a, .buy .uzi-ul > li > a, .buy .df-ul > li > a, .buy .relation-ul > li > a, .buy .mine-ul > li > a, .qwe > .allCourse-ul > li > a, .qwe .read-nav > li > a, .qwe .buy-nav > li > a, .qwe .qwe-ul > li > a, .qwe .uzi-ul > li > a, .qwe .df-ul > li > a, .qwe .relation-ul > li > a, .qwe .mine-ul > li > a, .uzi-left-intro > .allCourse-ul > li > a, .uzi-left-intro .read-nav > li > a, .uzi-left-intro .buy-nav > li > a, .uzi-left-intro .qwe-ul > li > a, .uzi-left-intro .uzi-ul > li > a, .uzi-left-intro .df-ul > li > a, .uzi-left-intro .relation-ul > li > a, .uzi-left-intro .mine-ul > li > a, .df > .allCourse-ul > li > a, .df .read-nav > li > a, .df .buy-nav > li > a, .df .qwe-ul > li > a, .df .uzi-ul > li > a, .df .df-ul > li > a, .df .relation-ul > li > a, .df .mine-ul > li > a, .relation > .allCourse-ul > li > a, .relation .read-nav > li > a, .relation .buy-nav > li > a, .relation .qwe-ul > li > a, .relation .uzi-ul > li > a, .relation .df-ul > li > a, .relation .relation-ul > li > a, .relation .mine-ul > li > a, .mine-nav > .allCourse-ul > li > a, .mine-nav .read-nav > li > a, .mine-nav .buy-nav > li > a, .mine-nav .qwe-ul > li > a, .mine-nav .uzi-ul > li > a, .mine-nav .df-ul > li > a, .mine-nav .relation-ul > li > a, .mine-nav .mine-ul > li > a {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.read {
+  height: 400px;
+}
+
+.read-li {
+  height: 320px;
+  border-radius: 65px !important;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.col-xs-6 {
+  border-radius: 35px !important;
+  overflow: hidden;
+}
+
+.thumbnail > img {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.four-ul > li {
+  height: 230px !important;
+}
+
+.buy-li {
+  width: 20% !important;
+  margin: 10px 0;
+  overflow: hidden;
+  height: 300px !important;
+}
+
+.thumbnail {
+  border: none;
+}
+
+.uu {
+  padding: 30px;
+  background: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #222;
+  word-wrap: break-word;
+}
+.uu img {
+  width: 100% !important;
+}
+
+.SX > .add {
+  height: 25px;
+  width: 25px;
+  margin: 0 5px 0 5px;
+  line-height: 100%;
+  border: hidden;
+  background-color: #f32196;
+  color: #FFFFFF;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.SX > .count {
+  border-top: 1px solid #ABADB3;
+  border-left: 1px solid #ABADB3;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  height: 24px;
+  width: 50px;
+  padding: 0 5px;
+  line-height: 100%;
+}
+
+.iii {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.form > .nb {
+  width: 85%;
+  min-width: 300px;
+  float: left;
+  margin-bottom: 10px;
+}
+.form > .nb > input[type=text] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  border: #CCCCCC solid 1px;
+  margin-left: 10px;
+}
+.form > .nb > textarea {
+  width: 95%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: #CCCCCC solid 1px;
+  margin-left: 10px;
+}
+.form > .nb > button[type=button] {
+  background: #ff9900;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: #ff9900 solid 1px;
+  color: #ffffff;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.form > .nb > button[type=reset] {
+  background: #0099ff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: #0099ff solid 1px;
+  color: #ffffff;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=normal.css.map */

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>个人中心头部</title>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<!--    <link rel="stylesheet" href="../css/owner.css">-->
+    <link rel="stylesheet" href="../css/normal.css">
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #424b50;
+            background-color: #fff;
+            padding-top: 110px;
+            height: 100%;
+            margin: 0;
+        }
+
+        a {
+            color: black;
+            text-decoration: none !important;
+        }
+
+        ol li, ul li {
+            list-style: none;
+        }
+
+        .asd {
+            height: 60px;
+            background-color: #549688;
+        }
+        .asd > .right {
+            height: 100%;
+            width: 300px;
+            float: right !important;
+            margin-right: -15px;
+            margin-top: -60px;
+        }
+        .asd > .right > li {
+            float: right;
+            line-height: 60px;
+            margin-right: 20px;
+        }
+        .asd > .right > li > a {
+            color: red;
+        }
+        .asd > .right .pic {
+            border-radius: 1000px;
+            display: inline-block;
+            position: relative;
+            white-space: nowrap;
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        .asd > .right .pic img {
+            border: 0 none;
+            border-radius: 1000px;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav {
+            margin-top: 60px;
+        }
+        .nav .mine-ul {
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            padding: 0 20px;
+        }
+
+        .dropdown {
+            margin-top: -11px;
+        }
+        .dropdown:hover {
+            background-color: #fff;
+        }
+        .dropdown i {
+            margin-right: 10px;
+        }
+        .dropdown .btn-default {
+            border: none !important;
+        }
+
+        .section {
+            background: #f1f4f5;
+            min-height: calc(100% - 71px);
+            min-height: 90% \9 ;
+            position: relative;
+            box-sizing: border-box;
+            margin-top: -113px;
+        }
+        .section .section-header {
+            background-image: url(../img/header-0.jpg);
+            background-position: center bottom;
+            background-size: cover;
+            border-bottom: medium none;
+            margin-bottom: 0;
+            margin-top: 0;
+            padding: 30px 0 0 0;
+            position: relative;
+        }
+        .section .section-header .Msg {
+            position: relative;
+        }
+        .section .section-header .avatar img {
+            border: 0 none;
+            border-radius: 1000px;
+            max-width: 100%;
+            width: 63%;
+            height: 100%;
+            margin-left: 30px;
+        }
+        .section .section-header .my-avatar label {
+            position: absolute;
+            top: 0;
+            right: -13px;
+            background-color: #f0ad4e;
+        }
+        .section .section-header .font-size-16 {
+            font-size: 16px !important;
+        }
+
+        .list-inline {
+            padding-left: 0;
+            list-style: none;
+            margin-left: -5px;
+        }
+
+        .badge {
+            background: #f0ad4e !important;
+        }
+
+        .p_top_10 p {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="asd container-fluid navbar-fixed-top">
+            <div class="left"><a href="javascript:parent.location.href='../first.html';"><img src="../img/logo.png" alt="" style="height:60px"></a></div>
+            <ul class="right">
+                <li><a href="javascript:localStorage.removeItem('lanou');alert('退出成功了,憨批!');parent.location.href = '../first.html';" id="reg">退出</a></li>
+                <li><span class="pic"><img src="../img/004.jpg" alt=""></span><a href="###"></a></li>
+            </ul>
+        </div>
+        <nav class="nav mine-nav navbar-fixed-top">
+            <ul class="mine-ul">
+                <li class="mine-li">
+                    <a href="javascript:parent.location.href ='../ownerCenter.html'">
+                        <i class="glyphicon glyphicon-home"></i>
+                        <span>会员中心</span>
+                    </a>
+                </li>
+                <li class="mine-li">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="glyphicon glyphicon-send"></i>订单管理
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="javascript:parent.location.href ='../订单管理.html?type=0'">购物车</a></li>
+                            <li><a href="javascript:parent.location.href ='../订单管理.html?type=1'">已购商品</a></li>
+                            <li><a href="javascript:parent.location.href ='../订单管理.html?type=2'">已购文章</a></li>
+                            <li><a href="javascript:parent.location.href ='../订单管理.html?type=3'">已购课程</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mine-li">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="glyphicon glyphicon-search"></i>我的收藏
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="javascript:parent.location.href ='../我的收藏.html?type=0'">商品收藏</a></li>
+                            <li><a href="javascript:parent.location.href ='../我的收藏.html?type=1'">文章收藏</a></li>
+                            <li><a href="javascript:parent.location.href ='../我的收藏.html?type=2'">课程收藏</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mine-li">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="glyphicon glyphicon-credit-card"></i>我的历史
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="javascript:parent.location.href ='../我的历史.html?type=0'">商品足迹</a></li>
+                            <li><a href="javascript:parent.location.href ='../我的历史.html?type=1'">文章历史</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mine-li">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="glyphicon glyphicon-user"></i>用户信息
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="javascript:parent.location.href ='../用户信息.html?type=0'">用户信息</a></li>
+                            <li><a href="javascript:parent.location.href ='../用户信息.html?type=1'">收货信息</a></li>
+                            <li><a href="javascript:parent.location.href ='../用户信息.html?type=2'">修改密码</a></li>
+                            <li><a href="javascript:parent.location.href ='../用户信息.html?type=3'">资金明细</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mine-li">
+                    <div class="dropdown zxc">
+                        <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="glyphicon glyphicon-credit-card"></i>三级分销
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="javascript:parent.location.href ='../三级分销.html?type=0'">我的邀请</a></li>
+                            <li><a href="javascript:parent.location.href ='../三级分销.html?type=1'">邀请规则</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class= 'section' style="width: 100%">
+            <div class="section-header">
+                <div class="container">
+                    <div class="Msg">
+                        <div class="col-xs-5 col-sm-2">
+                            <div class="my-avatar pull-right">
+                            <span class="avatar">
+                              <img alt="..." src="../img/002.jpeg" width='100px' height='100px'>
+                              <label class="badge">普通会员</label>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-7 col-sm-3">
+                            <p class="font-size-16">
+                                <strong class="uname"></strong>
+                            </p>
+                            <p class="font-size-16 vipp">
+                                <a href="#">
+                                    <span style="color:#333333;" class="vip"></span>
+                                </a>
+                            </p>
+                            <p class="hidden-xs">
+                                <a href="#" style="color:#333333;" class="email"></a>
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4" style="padding-left: 50px">
+                            <p class="font-size-16">
+                                <strong>我的财富</strong></p>
+                            <ul class="list-inline">
+                                <li class="p_top_10  col-coupon" style="margin-top:10px">
+                                    <a href="#" class="badge integral" style="font-size: 24px !important;">0</a> 分
+                                    <p class="" >我的积分 <a class="btn btn-warning btn-xs" href="###">兑换</a>
+                                        <a class="btn btn-info btn-xs" id="dao" href="###">签到</a> </p></li>
+                                <li class="p_top_10 p_left_20 col-integral">
+                                    <a href="###" class="badge" style="font-size: 24px !important;background-color:green !important">0.00</a> 元
+                                    <p class="">我的余额 <a href="#" class="btn btn-warning btn-xs">充值</a>
+                                        <a href="###" data-toggle="modal" data-target="#myModal3" class="btn btn-info btn-xs">提现</a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section></section>
+    <script>
+        let who = localStorage.getItem('lanou');
+        $(function () {
+                //退出
+                if (localStorage.getItem('lanou')!=null){
+
+                    $('.right>li:eq(1)>a').html(JSON.parse(who).username).attr('href','owner.html');
+                    //根据key得值
+                    $('.uname').html(JSON.parse(who).username);
+                    $('.email').html(JSON.parse(who).email);
+                    $('.pic img').attr('src','http://47.105.96.139:8082'+JSON.parse(who).head);
+                    $('.avatar img').attr('src','http://47.105.96.139:8082'+JSON.parse(who).head);
+                    if(JSON.parse(who).M_vip === 0){
+                        $('.vip').html('普通会员');
+                        $('.vipp').append(`<a href="#" class="btn btn-info btn-xs">开通VIP</a>`);
+                    }else{
+                        $('.vip').html('高级会员');
+                        $('.vipp').append(`<a href="#" class="btn btn-info btn-xs">芜湖giao</a>`);
+                    }
+                }
+            })
+            //签到
+            $('#dao').on('click', function (){
+                console.log(1);
+                $.ajax({
+                    url:'http://47.105.96.139:8082/napi/member/sign',
+                    type:'get',
+                    data:{token:JSON.parse(who).token},
+                    dataType:'json',
+                    success:function(data){
+                        alert(data.msg);
+                    },
+                    error:function(data){
+                        alert('请求出错啦!');
+                    }
+                })
+            })
+    </script>
+</body>
+</html>

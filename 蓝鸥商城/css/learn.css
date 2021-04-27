@@ -1,0 +1,151 @@
+.head {
+  height: 50px;
+  background: #ffffff;
+  box-shadow: 0 0 10px #888888;
+  z-index: 9;
+  position: relative;
+}
+.head > .back {
+  font-size: 25px;
+  line-height: 50px;
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  border-right: solid 1px #DDDDDD;
+  color: #000000;
+  text-decoration: none;
+}
+.head div {
+  font-size: 20px;
+  line-height: 50px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  width: calc(100% - 150px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}
+.head img {
+  height: 40px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.left-box {
+  padding: 20px;
+  width: 84%;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  height: calc(100% - 50px);
+  background: #AAAAAA;
+  text-align: center;
+}
+
+.right-box {
+  padding: 0;
+  width: 16%;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  height: calc(100% - 50px);
+  overflow: auto;
+  clear: both;
+}
+.right-box > .right-Top {
+  padding: 15px 0;
+  background: #EEEEEE;
+  box-sizing: border-box;
+  margin: 0;
+  clear: both;
+}
+.right-box p {
+  margin: 0 0 10px;
+  color: black;
+}
+.right-box > div {
+  padding: 15px 0;
+}
+.right-box img {
+  vertical-align: middle;
+  border: 0;
+}
+.right-box .btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding: 5px;
+  border: none;
+}
+.right-box .list-group-item {
+  padding: 0;
+  color: #555;
+  position: relative;
+  display: block;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.right-box .list-group-item > .part {
+  width: 90px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 15px 0 15px;
+  text-align: center;
+  vertical-align: top;
+}
+.right-box .list-group-item > .part2 {
+  width: calc(100% - 90px);
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 15px 0 20px;
+  border-left: solid 2px #DDDDDD;
+  position: relative;
+  vertical-align: top;
+}
+.right-box .list-group-item > .part2 > .z {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  border: solid 2px #DDDDDD;
+  background: #ffffff;
+  position: absolute;
+  left: -15px;
+  top: calc(50% - 10px);
+  text-align: center;
+  line-height: 26px;
+}
+.right-box .list-group-item span {
+  font-size: 12px;
+  font-weight: normal;
+}
+.right-box > a:visited {
+  background-color: #0099ff;
+}
+
+.zj {
+  font-size: 17px;
+  line-height: 32px;
+  margin: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  width: 100%;
+}
+
+.y {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  border: solid 2px #DDDDDD;
+  background: #ffffff;
+  position: absolute;
+  left: -9px;
+  top: calc(50% - 8px);
+}
+
+/*# sourceMappingURL=learn.css.map */
